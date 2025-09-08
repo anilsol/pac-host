@@ -1,7 +1,7 @@
 function FindProxyForURL(url, host)
 {
     var direct = "DIRECT";
-    var proxyServer = "PROXY turbo-2ri8e5hq.edge.prod.fortisase.com:11796";
+    var proxyServer = "turbo-qhxk42r2.edge.prod.fortisase.com:11508";
 
     // Use proxy for specific Office CDN domains
     if (shExpMatch(host, "cdn.odc.officeapps.live.com") ||
@@ -78,3 +78,4 @@ function FindProxyForURL(url, host)
     // Default: use proxy
     return proxyServer;
 }
+
