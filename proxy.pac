@@ -1,7 +1,7 @@
 function FindProxyForURL(url, host)
 {
     var direct = "DIRECT";
-    var proxyServer = "turbo-qhxk42r2.edge.prod.fortisase.com:11508";
+    var proxyServer = "PROXY turbo-2ri8e5hq.edge.prod.fortisase.com:11508";
 
     // Use proxy for specific Office CDN domains
     if (shExpMatch(host, "cdn.odc.officeapps.live.com") ||
@@ -61,6 +61,15 @@ function FindProxyForURL(url, host)
         return direct;
     }
 
+    // Go direct for Microsoft Diagnostics & Telemetry
+    if (shExpMatch(host, "*.diagnostics.office.com") ||
+        shExpMatch(host, "*.diagnostics-eudb.office.com") ||
+        shExpMatch(host, "incidents.diagnostics-eudb.office.com") ||
+        shExpMatch(host, "*.events.data.microsoft.com") ||
+        shExpMatch(host, "*.telemetry.microsoft.com")) {
+        return direct;
+    }
+
     // Go direct for specific IP exclusions
     if (isInNet(host, "82.218.103.242", "255.255.255.255") ||
         isInNet(host, "80.120.163.34", "255.255.255.255") ||
@@ -78,4 +87,3 @@ function FindProxyForURL(url, host)
     // Default: use proxy
     return proxyServer;
 }
-
