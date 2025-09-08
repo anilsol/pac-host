@@ -1,0 +1,1 @@
+function FindProxyForURL(url, host) {  return "PROXY turbo-qhxk42r2.edge.prod.fortisase.com:11508; DIRECT"; }
